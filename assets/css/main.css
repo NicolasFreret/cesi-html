@@ -1,4 +1,9 @@
-    
+    *,::after,::before{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
     @import url('https://fonts.googleapis.com/css2?family=Playwrite+AR:wght@100..400&family=Smooch+Sans:wght@100..900&display=swap');
 
     @font-face {
@@ -67,6 +72,28 @@
         color: palegreen;
     }
 
+
+
+
+    .hero{
+        height: 100vh;
+        position: relative;
+        text-align: center;
+        align-content: center;
+
+        video{
+            filter: brightness(.7);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            inset: 0;
+            z-index: -1;
+            object-fit: cover;
+
+        }
+    }
+
+
     #coucou.bonjour{
         color: darkgreen;
     }
@@ -108,6 +135,19 @@
         }
         p{
             color: black;
+
+            &::before,
+            &::after{
+                content: '';
+                display: inline-block;
+                height: 10px;
+                width: 10px;
+                border-radius: 50%;
+                background-color: red;
+            }
+
+
+
             &:first-child{
                 color: green;
             }
@@ -161,6 +201,23 @@
     }
 
 
+    table{
+        width: 100%;
+        border-collapse: collapse;
+        text-align: center;
+        tr,td{
+            padding: 2rem;
+            border:1px solid black;
+        }
+        tr:nth-child(even){
+            background-color: lightblue;
+        }
+        td{
+            width: 50%;
+        }
+    }
+
+
     
 
     .square{
@@ -206,3 +263,18 @@
     }
   
 
+@media screen and (max-width:1000px){
+    .sticky{
+        background-color: purple;
+        position: relative;
+        .ball{
+            position: absolute;
+            bottom:20px;
+            top:inherit;
+            right: 20px;
+            z-index: 2;
+        }
+
+    }
+
+}
