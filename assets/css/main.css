@@ -1,0 +1,104 @@
+    
+    body{
+        
+        font-family: "Playwrite AR", cursive;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    .smooth{
+         font-family: "Smooch Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 800;
+        font-style: normal;
+    }
+    
+    img{
+        width: 250px;
+    }
+    p{
+        color: brown;
+
+        &.yellow{
+            color: yellow;
+        }
+
+        &.test.frites.coucou{
+            font-size: 5rem;
+        }
+
+        &.test.frites.yellow{
+
+            color: red;
+        }
+
+        .yellow{
+            color:darksalmon;
+            font-style: italic;
+        }
+    }
+
+   
+
+    a{
+        text-decoration: none;
+        color: palegreen;
+    }
+
+    #coucou.bonjour{
+        color: darkgreen;
+    }
+
+
+    .btn{
+        padding: 1rem 2rem;
+        background: #000;
+        text-transform: uppercase;
+        color: #fff;
+        font-size: 20px;
+        font-weight: 800;
+        border-radius: 10px;
+        border: 1px solid #000;
+        transition: color .5s ease,
+        background .5s ease;
+        display: inline-block;
+        
+        &:hover{
+            background: #fff;
+            color: #000;
+        }
+
+        &.red{
+            background: #ff0000;
+            border: 1px solid #ff0000;
+            &:hover{
+                background: #fff;
+                color: #ff0000;
+            }
+        }
+    }
+
+   
+
+    #soir{
+        :last-child{
+            color: #ff0000;
+        }
+        p{
+            color: black;
+            &:first-child{
+                color: green;
+            }
+            &:nth-child(2){
+                color: orange;
+            }
+
+            &:nth-child(3n){
+                color: aqua;
+            }
+        }
+    }
+
+  
+
