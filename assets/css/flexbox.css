@@ -2,6 +2,21 @@
     display: flex;
 }
 
+.h-vh{
+    height: 100vh;
+    gap:1rem;
+    align-items: start;
+    flex-flow: wrap;
+
+    div{
+        background-color: aqua;
+        flex:0 1 auto;
+        
+
+        
+    }
+}
+
 .exo{
     gap:1rem;
     flex-flow: row wrap;
