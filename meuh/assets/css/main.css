@@ -42,6 +42,10 @@ body{
     background-color: var(--white);
 }
 
+main{
+    padding-top: 130px;
+}
+
 a{
     text-decoration: none;
 }
@@ -84,6 +88,55 @@ section{
 .icon-instagram {
     width: 24px; height: 24px;
     mask-position: -54px -10px;
+}
+
+.icon-arrow {
+    width: 24px; height: 24px;
+    mask-position: -10px -54px;;
+}
+
+.slider{
+    height: 30vw;
+    position: relative;
+    .arrow{
+        background-color: var(--black);
+        width: fit-content;
+        position: absolute;
+        height: 100px;
+        top:0;
+        bottom: 0;
+        margin-block: auto;
+        width: 2.5%;
+        display: grid;
+        place-items: center;
+
+        &.left{
+            left:0;
+            .icon-arrow{
+                rotate: 180deg;
+            }
+        }
+
+        &.right{
+            right:0;
+        }
+    }
+    .slider-wrapper{
+        box-sizing: content-box;
+        background-color: var(--duck);
+        height: 100%;
+        border: 5px solid var(--black);
+        overflow: hidden;
+    }
+    .slider-track{
+        height: 100%;
+        display: flex;
+    }
+    .slide{
+        min-width: 100%;  
+        object-fit: contain; 
+        height: auto;
+    }
 }
 
 .col-1{
@@ -171,7 +224,12 @@ section{
 }
 
 header{
-
+    
+    position: fixed;
+    z-index: 9;
+    width: 100%;
+    top:0;
+    left:0;
     .top-bar,
     .nav{
         border-bottom:5px var(--black) solid;
@@ -210,6 +268,7 @@ header{
 
     .nav{
         padding-block:2rem;
+        background-color: var(--white) !important;
         .container{
             &,
             nav{
@@ -257,9 +316,12 @@ header{
 }
 
 
+
+
 @media screen and (max-width:1350px) {
 
     header{
+        
         a{
             font-size: 1.5rem;
         }
@@ -335,11 +397,20 @@ header{
 
         .top-bar{
             .container{
+                justify-content: center;
                 gap: 3rem;
+            
+                .socials{
+                    display: none;
+                }
             }
         }
         .nav{
+            border-bottom: none;
             .container{
+                .logo{
+                    width: 200px;
+                }
                 nav{
                    position: fixed;
                     right: 100%;
@@ -458,7 +529,15 @@ header{
 }
 
 @media screen and (max-width: 550px) {
+    header{
+        .top-bar{
+            text-align: center;
+            a{
+                font-size: 1rem;
+            }
 
+        }
+    }
 
     .row{
         gap: var(--grid-gap) 0;
