@@ -9,7 +9,9 @@
     --grid-gap:2rem;
 
     --duck:#135959;
+    --green:#8BBF46;
     --white:#FBF8E9;
+    --black:#000;
 }
 
  @font-face {
@@ -64,6 +66,24 @@ section{
     display: grid;
     grid-template-columns: repeat(12,1fr);
     gap: var(--grid-gap);
+}
+
+
+
+[class*='icon-']{
+    mask: url('../img/css_sprites.png');
+    display: inline-block;
+    background-color: var(--white);
+}
+
+.icon-facebook {
+    width: 24px; height: 24px;
+    mask-position: -10px -10px;
+}
+
+.icon-instagram {
+    width: 24px; height: 24px;
+    mask-position: -54px -10px;
 }
 
 .col-1{
@@ -122,6 +142,43 @@ section{
     text-transform: uppercase;
 }
 
+.socials{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    span{
+        scale:0.8;
+    }
+}
+
+header{
+
+    a{
+        font-size: 1.6rem;
+        line-height: 1.6rem;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    .top-bar{
+        background-color: var(--duck);
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        gap: 4rem;
+        height: 50px;
+        border-bottom:5px var(--black) solid;
+        a{
+            color: var(--white);
+            &:hover{
+                color: var(--green);
+            }
+        }
+    }
+
+
+}
 
 
 @media screen and (max-width:1350px) {
