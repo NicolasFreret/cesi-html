@@ -1,3 +1,7 @@
+// IIFE classique (fonction anonyme)
+(async function () {
+  
+
 const string ="texte"
 const number = 5
 const tableau = []
@@ -63,6 +67,7 @@ hbg.addEventListener('click', e =>{
    let isOpen =  header.classList.toggle('open')
    hbg.setAttribute('aria-expended', isOpen)
 })
+
 
 
 //a.href = 'https://caen.cesi.fr/'
@@ -136,6 +141,16 @@ arrows.forEach(arrow =>{
 
 
 console.log(track)
+
+
+
+
+})();
+
+
+
+
+
 
 
 
