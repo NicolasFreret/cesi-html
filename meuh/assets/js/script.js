@@ -56,24 +56,30 @@ div.classList.add('superClass')
 
 
 const a = document.createElement('a'),
-nav = header.querySelector('nav')
+nav = header.querySelector('nav'),
+hbg = header.querySelector('.hbg')
+
+hbg.addEventListener('click', e =>{
+   let isOpen =  header.classList.toggle('open')
+   hbg.setAttribute('aria-expended', isOpen)
+})
 
 
 //a.href = 'https://caen.cesi.fr/'
-a.setAttribute('href', 'https://caen.cesi.fr/')
-a.innerText = 'CESI'
-a.target = '_blank'
-nav.append(a)
+// a.setAttribute('href', 'https://caen.cesi.fr/')
+// a.innerText = 'CESI'
+// a.target = '_blank'
+// nav.append(a)
 
-const as = [...nav.querySelectorAll('a')]
-
-
-console.log( !!(as.filter(a => a.innerText.toLocaleLowerCase().includes('e')).length))
+// const as = [...nav.querySelectorAll('a')]
 
 
-as.forEach(a =>{
-    a.classList.add('baptiste')
-})
+// console.log( !!(as.filter(a => a.innerText.toLocaleLowerCase().includes('e')).length))
+
+
+// as.forEach(a =>{
+//     a.classList.add('baptiste')
+// })
 
 
 ///////////////////SLIDER////////////////////////////
