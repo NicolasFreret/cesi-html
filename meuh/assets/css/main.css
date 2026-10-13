@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+
 :root{
     --base-px:10px;
     --grid-gap:2rem;
@@ -58,7 +59,19 @@ video{
 
 section{
     position: relative;
-    padding-block: 3%;
+    padding-block: 20px;
+    content-visibility:auto;contain-intrinsic-size:auto 200px;
+}
+
+.headline{
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.border{
+    border: 5px solid var(--black);
 }
 
 .container{
@@ -98,6 +111,7 @@ section{
 .slider{
     height: 30vw;
     position: relative;
+    width: 100%;
     .arrow{
         background-color: var(--black);
         width: fit-content;
@@ -109,6 +123,7 @@ section{
         width: 2.5%;
         display: grid;
         place-items: center;
+        cursor: pointer;
 
         &.left{
             left:0;
@@ -125,12 +140,13 @@ section{
         box-sizing: content-box;
         background-color: var(--duck);
         height: 100%;
-        border: 5px solid var(--black);
         overflow: hidden;
     }
     .slider-track{
         height: 100%;
         display: flex;
+        will-change: transform;
+        transition: transform .5s ease;
     }
     .slide{
         min-width: 100%;  
@@ -193,6 +209,32 @@ section{
     line-height: 6rem;
     font-weight: 700;
     text-transform: uppercase;
+}
+
+.btn{
+    font-family: 'Fedora';
+    font-size: 1.8rem;
+    line-height: 2rem;
+    font-weight: 500;
+    height: 50px;
+    padding-inline: 3rem;
+    background-color: var(--green);
+    color: var(--black);
+    text-transform: uppercase;
+    align-content: center;
+    transform: skewX(-30deg);
+    box-shadow: 8px 8px 0 var(--black);
+    transition: background-color .5s ease;
+    border: 3px solid var(--black);
+    span{
+        transform: skewX(30deg);
+        display: inline-block;
+    }
+    &:hover{
+        background-color: var(--duck);
+    }
+
+
 }
 
 .socials{
@@ -315,7 +357,63 @@ header{
 
 }
 
+.about{
+    
+    position: relative;
+    
 
+    h1{
+        color: var(--green);
+    }
+
+    .galerie{
+        border-top:none;
+        flex-flow: row !important;
+        gap: 0 !important;
+        height: 250px !important;
+        figure{
+            height: 100%;
+            width: 100%;
+            &:not(:last-child){
+                border-right: 5px solid var(--black);
+            }
+            img{
+                object-fit: cover;
+                
+            }
+        }
+    }
+
+    .content{
+        text-align: center;
+        font-weight: 600;
+        line-height: 2.9rem;
+    }
+    .container{
+        &:not(.galerie){
+            padding: 1rem;
+            height: 450px;
+        }
+        position: relative;
+        background-image: radial-gradient(rgba(0, 0, 0, .15) 8px, transparent 0);
+        background-size: 36px 36px;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        gap:3rem;
+        justify-content: center;
+        color:var(--white);
+        height: 100%;
+        background-color: var(--duck);
+        height: 100%;
+    }
+
+    .btn{
+        position: absolute;
+        bottom:-25px;
+        z-index: 3;
+    }
+}
 
 
 @media screen and (max-width:1350px) {
@@ -386,9 +484,19 @@ header{
     .col-md-12{
         grid-column: span 12;
     }
+
+    .h1{
+        font-size: 4rem;
+        line-height: 5rem;
+    }
 }
 
 @media screen and (max-width:1050px) {
+
+    .h1{
+        font-size: 3.5rem;
+        line-height: 4rem;
+    }
 
     header{
         .hbg{
@@ -424,6 +532,22 @@ header{
                     align-items: start;
                     padding: 100px 20px 20px 20px;
                 }
+            }
+        }
+    }
+
+    .slider{
+
+        .arrow{
+            z-index: 2;
+            width: 30px;
+            opacity: .8;
+            &.left{
+                left:2.5%;
+            }
+
+            &.right{
+                right:2.5%;
             }
         }
     }
@@ -475,9 +599,20 @@ header{
     .col-sm-12{
         grid-column: span 12;
     }
+
+    .btn{
+        font-size: 1.2rem;
+        line-height: 2rem;
+        padding-inline: 2rem;
+    }
 }
 
 @media screen and (max-width: 750px) {
+
+    .h1{
+        font-size: 2.5rem;
+        line-height: 3rem;
+    }
 
     .col-xs-1{
         grid-column: span 1;

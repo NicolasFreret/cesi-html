@@ -33,19 +33,6 @@ eleves.forEach( (eleve, i) => {
 });
 
 
-
-// for (let i = 0; i < eleves.length; i++) {
-//     console.log(eleves[i].prenom)
-// }
-
-// let ii = 0
-// while (ii < eleves.length) {
-//     console.log(eleves[ii].prenom)
-//     ii++
-// }
-
-
-
 saluer('Nicolas')
 
 
@@ -57,6 +44,95 @@ const saluer2 = _nom => `Salut ${_nom}`
 
 const y = saluer2('Jean')
 console.log(y)
+
+const div = document.createElement('div'),
+header = document.querySelector('header')
+
+//console.log(header)
+div.innerText = 'Coucou'
+div.id = 'belette'
+div.classList.add('superClass')
+//header.append(div)
+
+
+const a = document.createElement('a'),
+nav = header.querySelector('nav')
+
+
+//a.href = 'https://caen.cesi.fr/'
+a.setAttribute('href', 'https://caen.cesi.fr/')
+a.innerText = 'CESI'
+a.target = '_blank'
+nav.append(a)
+
+const as = [...nav.querySelectorAll('a')]
+
+
+console.log( !!(as.filter(a => a.innerText.toLocaleLowerCase().includes('e')).length))
+
+
+as.forEach(a =>{
+    a.classList.add('baptiste')
+})
+
+
+///////////////////SLIDER////////////////////////////
+
+const slider = document.querySelector('.slider'),
+track = slider.querySelector('.slider-track'),
+slides = track.querySelectorAll('.slide'),
+arrows = slider.querySelectorAll('.arrow')
+
+let indexSlider = 0,
+timeAutoplay = 5,
+autoplay
+
+function arrowsClick(e){
+    const el = e.currentTarget
+    el.classList.contains('left') ? indexSlider-- : indexSlider++
+    if(autoplay) resetAutoplay(timeAutoplay)
+    preventSliderOverflow(indexSlider)
+    shiftSlide()
+}
+
+function preventSliderOverflow(_index){
+    indexSlider = _index < 0 ? slides.length - 1 : 
+        _index > slides.length - 1 ? 0 : 
+        _index
+}
+
+function shiftSlide(){
+    track.style.transform =`translateX(-${indexSlider * 100}%)`
+}
+
+function autoPlay(_timeInSec = 5){
+   autoplay = setInterval(() => {
+        indexSlider++
+        preventSliderOverflow(indexSlider)
+        shiftSlide()
+    }, _timeInSec * 1000);
+}
+
+function resetAutoplay(_timeInSec = 5){
+    clearInterval(autoplay)
+    autoPlay(_timeInSec)
+}
+ autoPlay(timeAutoplay)
+
+
+
+
+
+arrows.forEach(arrow =>{
+    arrow.addEventListener('click', arrowsClick)
+})
+
+
+
+console.log(track)
+
+
+
 
 
 
